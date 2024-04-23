@@ -189,7 +189,7 @@ public class ClientEventHandler
         EntityPlayer player = event.entityPlayer;
         LightsaberData data = ALData.LIGHTSABER.get(player);
 
-        if (data != null && data != LightsaberData.EMPTY && (player.getHeldItem() == null || player.getHeldItem().getItem() != ModItems.lightsaber))
+        if (data != null && !data.equals(LightsaberData.EMPTY) && (player.getHeldItem() == null || !player.getHeldItem().getItem().equals(ModItems.lightsaber)))
         {
             GL11.glPushMatrix();
             event.renderer.modelBipedMain.bipedBody.postRender(0.0625F);
